@@ -1,8 +1,9 @@
 # encoding: utf-8
 
 module AdhearsionI18n::CallControllerMethods
-  def t(key, options = {})
-    AdhearsionI18n.t key, { locale: locale }.merge(options || {})
+  def t(key, **options)
+    merged_options = { locale: locale }.merge(options || {})
+    AdhearsionI18n.t key, **merged_options
   end
 
   def locale
